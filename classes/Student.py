@@ -1,3 +1,6 @@
+from settings import students
+from classes.Group import Group
+
 class Student:
     def __init__(self, name, comp):
         """
@@ -80,9 +83,23 @@ class Student:
         elif user_input == "3":
             return Student.update()
         else:
-            main()
+            Student.menu()
 
     def display_list():
         for i in range(len(students)):
             print("N°{} : {} ({})".format(i, students[i][0], students[i][1]))
-    
+
+    def menu():
+        print("\nSuper-Binomtron à votre service !")
+        print("\n\033[4mMenu principal\033[0m\n")
+        print("1) Gérer la liste des apprenants\n2) Générer un groupe\n0) Quitter")
+        user_input = input()
+        while user_input not in ["0","1", "2"]:
+            print("Merci de saisir 1 ou 2 , ou 0 pour quitter : ")
+            user_input = input()
+        if user_input == "1":
+            Student.edit_list()
+        elif user_input == "2":
+            return Group.generateGroup()
+        else:
+            print("Au revoir")

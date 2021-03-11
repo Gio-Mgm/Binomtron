@@ -1,3 +1,6 @@
+from settings import students
+import random
+
 class Group:
     def __init__(self, isBySize, number, randomParam):
         """
